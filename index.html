@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dua 21</title>
+</head>
+<body>
+  <a id="manualLink" href="#" target="_blank" style="display:none;">Open WhatsApp</a>
+  <script>
+    const message = `*Let us drink from Al-Kawthar together* 
+
+This heartfelt dua calls upon Allah ﷻ by His Name Al-Karīm — The Most Generous — to grant us the blessing of drinking from the sacred fountain of Kawthar and to be among those honored to share that moment in the noble company of Rasulullah ﷺ.
+
+Because Allah’s ﷻ generosity brings eternal comfort and relief to those He favors.
+
+As Rasulullah ﷺ said:
+
+ “Whoever drinks from it will never thirst again.” (Musnad Ahmad)
+
+*Ya Allah (O Allah), Ya Kareem (O Most Generous), allow us the blessing of drinking from the Haud Al Kawthar (the sacred fountain of Rasulullah Sallallahu Alayhi Wasallam), and let us experience that moment in his noble company.*
+
+This dua is part of *The Supplication of Infinite Blessings* — a powerful collection of heartfelt supplications designed to benefit you in both this life and the next. 
+
+*At Dua Sharing, our mission is simple*: 
+
+To encourage sincere dua, meaningful sharing, and to multiply blessings through a growing global chain of people making dua for one another every single day.
+
+As Rasulullah ﷺ said: 
+
+“The supplication of a Muslim for his brother in his absence will certainly be answered. Every time he makes a supplication for good for his brother, the angel appointed for this task says: ‘Ameen! And may it be for you too.”
+
+Every post we share is taken directly from the full Supplication of Infinite Blessings — with the aim of moving hearts, inspiring action, and reminding us all of what truly matters.
+
+Access the full supplication in both English and Arabic at: https://www.duasharing.com
+
+When you share this post, you’re not simply sharing a dua. You’re opening the door to millions of people making sincere dua for you — with the Malaika (Angels) themselves saying “Ameen” to every single one.
+
+May Allah accept it from you, and reward you for all those it reaches through you.
+
+Ameen`;
+
+    const encodedText = encodeURIComponent(message);
+    const waProtocol = "whatsapp://send?text=" + encodedText;
+    const waWeb = "https://wa.me/?text=" + encodedText;
+    const manualLink = document.getElementById('manualLink');
+    manualLink.href = waWeb;
+
+    async function tryShare() {
+      try {
+        if (navigator.share) {
+          await navigator.share({ text: message });
+        } else {
+          window.location.href = waProtocol;
+          setTimeout(() => { window.location.href = waWeb; }, 1200);
+        }
+      } catch (err) {
+        window.location.href = waWeb;
+      }
+    }
+
+    window.addEventListener('load', tryShare);
+  </script>
+</body>
+</html>
